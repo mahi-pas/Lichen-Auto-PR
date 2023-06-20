@@ -1,0 +1,6 @@
+name: Main Repositiory Auto PR
+run-name: A PR is being made in the Submitty repository
+on:
+  release:
+    types: published
+    
