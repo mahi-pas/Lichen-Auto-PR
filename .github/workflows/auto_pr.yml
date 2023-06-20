@@ -5,13 +5,23 @@ on:
     types: published
 
 jobs:
-  check-bats-version:
+  pull-request:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '14'
-      - run: npm install -g bats
-      - run: bats -v
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Create pull request
+      uses: paygoc6/action-pull-request-another-repo@v1.0.1
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+      with:
+        source_folder: 'source-folder'
+        destination_repo: 'user-name/repository-name'
+        destination_folder: 'folder-name'
+        destination_base_branch: 'branch-name'
+        destination_head_branch: 'branch-name'
+        user_email: 'user-name@paygo.com.br'
+        user_name: 'user-name'
+        pull_request_reviewers: 'reviewers'
     
