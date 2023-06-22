@@ -16,9 +16,9 @@ jobs:
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
-        source_folder: 'source-folder'
+        source_folder: 'bin'
         destination_repo: 'mahi-pas/Submitty-Auto-PR'
-        destination_folder: 'folder-name'
+        destination_folder: '.github'
         destination_base_branch: 'main'
         destination_head_branch: 'lichen-update-${{ github.event.repository.updated_at}}'
         user_email: ${{ secrets.PR_EMAIL }}
