@@ -17,11 +17,10 @@ jobs:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
         source_folder: 'source-folder'
-        destination_repo: 'user-name/repository-name'
+        destination_repo: 'mahi-pas/Submitty-Auto-PR'
         destination_folder: 'folder-name'
-        destination_base_branch: 'branch-name'
-        destination_head_branch: 'branch-name'
-        user_email: 'user-name@paygo.com.br'
-        user_name: 'user-name'
-        pull_request_reviewers: 'reviewers'
+        destination_base_branch: 'main'
+        destination_head_branch: 'lichen-update-${{ github.event.repository.updated_at}}'
+        user_email: ${{ secrets.PR_EMAIL }}
+        user_name: ${{ secrets.PR_USERNAME }}
     
